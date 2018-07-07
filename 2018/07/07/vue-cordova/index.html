@@ -40,20 +40,20 @@
 <blockquote>
 <p>此时的cordova项目结构如下</p>
 </blockquote>
-<p><img src="/home/zsy/Pictures/tree.png" alt="tree"></p>
+<p><img src="../picture/tree.png" alt="tree"></p>
 <blockquote>
 <p>删除www下的内容，因为这是cordova将打包到移动设备的内容</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> rm -r ./www</span><br><span class="line"><span class="meta">&gt;</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p>修改vue项目./config/index.js的打包命令，修改index和assertsRoot路径为./www，修改assertsPublicPath路径为空串，因为该项目需要到移动设备中运行，视图的显示应该来源于file:///而非是web服务器</p>
-<p><img src="/home/zsy/Pictures/path.png" alt="path"></p>
+<p><img src="../picture/path.png" alt="path"></p>
 <p>打包成功后的www目录如下</p>
-<p><img src="/home/zsy/Pictures/tree2.png" alt="tree2"></p>
+<p><img src="../picture/tree2.png" alt="tree2"></p>
 <p>可以通过file:///协议访问index.html，即将该文件以chrome打开</p>
-<p><img src="/home/zsy/Pictures/page.png" alt="page"></p>
+<p><img src="../picture/page.png" alt="page"></p>
 <p>接下来需要通过修改Content-Security-Policy以便允许本地socket通信服务。即添加connect-src ‘self’ ws:;</p>
-<p><img src="/home/zsy/Pictures/code.png" alt="code"></p>
+<p><img src="../picture/code.png" alt="code"></p>
 <p>将www移到cordova目录之下</p>
 </blockquote>
 </li>
