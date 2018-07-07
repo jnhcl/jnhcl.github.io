@@ -1715,8 +1715,8 @@ pre .javascript .function {
   position: fixed;
   right: 30px;
   bottom: 45px;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   padding: 5px;
   background-color: #fff;
   border-radius: 10px;
@@ -1740,11 +1740,10 @@ pre .javascript .function {
 .sidebar-toggle-line {
   position: relative;
   display: inline-block;
-  background-color: #fff;
+  background-color: #000;
   vertical-align: top;
   height: 2px;
   width: 100%;
-  background: #fff;
   margin-top: 3px;
 }
 .sidebar-toggle-line:first-child {
@@ -1854,7 +1853,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cfffc9;
+  background: #fffe47;
 }
 .links-of-blogroll {
   font-size: 13px;
