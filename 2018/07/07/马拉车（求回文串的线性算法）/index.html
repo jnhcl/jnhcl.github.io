@@ -116,11 +116,11 @@
 <meta property="og:url" content="http://yoursite.com/2018/07/07/马拉车（求回文串的线性算法）/index.html">
 <meta property="og:site_name" content="江南何采莲">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/pictrue/manacher1.jpg">
-<meta property="og:updated_time" content="2018-07-07T13:40:30.729Z">
+<meta property="og:image" content="http://yoursite.com/picture/manacher1.jpg">
+<meta property="og:updated_time" content="2018-07-07T13:45:33.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Manacher">
-<meta name="twitter:image" content="http://yoursite.com/pictrue/manacher1.jpg">
+<meta name="twitter:image" content="http://yoursite.com/picture/manacher1.jpg">
 
 
 
@@ -326,7 +326,7 @@
                 
               
 
-              <time title="创建时间：2018-07-07 21:26:27 / 修改时间：21:40:30" itemprop="dateCreated datePublished" datetime="2018-07-07T21:26:27+08:00">2018-07-07</time>
+              <time title="创建时间：2018-07-07 21:26:27 / 修改时间：21:45:33" itemprop="dateCreated datePublished" datetime="2018-07-07T21:26:27+08:00">2018-07-07</time>
             
 
             
@@ -397,7 +397,7 @@
 <li><p>第二步：设置P数组P[N*3];代表S[i]的回文半径(包括自身)，并设置id为迄今为止回文半径最大的字符位置，max为id+P[id]，该回文串的右边界位置</p>
 </li>
 <li><p>第三步：求p数组，这里存在一个结论：<br>如果mx &gt; i，那么P[i] &gt;= min(P[2 <em> id - i], mx - i)。<br>2</em>id-i，将其转化到x坐标上看，正好是i关于id的对称点，可以这么理解：由于mx&gt;i，可知i–&gt;mx是在已知范围以内的，因为以i为回文中心的回文串是与以其关于对称点j=2*id-i存在长度至少为mx-i相同回文半径的。<br>如图：（x和y至少是同样长的，因为以j为中心的是回文串，同id同i，根据回文串性质可得）</p>
-<p><img src="/pictrue/manacher1.jpg" alt=""></p>
+<p><img src="/picture/manacher1.jpg" alt=""></p>
 </li>
 </ul>
 <ul>
