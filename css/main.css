@@ -1139,6 +1139,7 @@ pre .javascript .function {
 }
 .site-title {
   display: inline-block;
+  left: 0;
   vertical-align: top;
   text-align: center;
   line-height: 36px;
@@ -1851,7 +1852,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ccdde2;
+  background: #2e22c8;
 }
 .links-of-blogroll {
   font-size: 13px;
