@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="chinese"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="vue &amp; cordova"><meta name="keywords" content="cordova"><meta name="author" content="zsy,undefined"><meta name="copyright" content="zsy"><title>vue &amp; cordova | 江南何采莲</title><link rel="shortcut icon" href="/my-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.5.6"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css?version=1.5.6"><link rel="dns-prefetch" href="https://cdn.staticfile.org"><link rel="dns-prefetch" href="https://cdn.bootcss.com"><link rel="dns-prefetch" href="https://creativecommons.org"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hybrid平台构建：（cordova-vue-webpack）"><span class="toc-number">1.</span> <span class="toc-text">Hybrid平台构建：（cordova + vue + webpack）</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/avatar.png"></div><div class="author-info__name text-center">zsy</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">1</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">1</span></a></div></div></div><div id="content-outer"><div class="no-bg" id="top-container" style="background-image: url(true)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">江南何采莲</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus"><a class="site-page" href="/">主页</a><a class="site-page" href="/archives">相关</a><a class="site-page" href="/tags">标签</a><a class="site-page" href="/categories">目录</a></span></div><div id="post-info"><div id="post-title">vue &amp; cordova</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-07-07</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="Hybrid平台构建：（cordova-vue-webpack）"><a href="#Hybrid平台构建：（cordova-vue-webpack）" class="headerlink" title="Hybrid平台构建：（cordova + vue + webpack）"></a>Hybrid平台构建：（cordova + vue + webpack）</h1><ul>
+<li>cordova</li>
+</ul>
+<hr>
+<p>本文阐述了如何为Hybird移动应用构建开发平台，包含以下内容</p>
+<ol>
+<li>Cordova + vue + webpack</li>
+<li>Jest/Mocha-Karma 测试</li>
+<li>Nighwatch 函数测试</li>
+<li>浏览器预览</li>
+<li>热重载</li>
+<li>打包成Android/IOS应用</li>
+</ol>
+<p>###何为Hybird应用</p>
+<blockquote>
+<p>所谓Hybird应用，即为一个内嵌于原生应用中运行的网站。其中webview相关代码部分是即时翻译运行的，而其中原生部分在应用运行之前就已编译成机器码。</p>
+</blockquote>
+<p>###准备环境</p>
+<blockquote>
+<p>unbantu Deepin 15.6<br>node.js v9.8.0<br>cordova v6.0.0<br>vue v2.9.3</p>
+</blockquote>
+<p>###构建步骤</p>
+<ol>
+<li><p>创建cordova项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova create hybird-base</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建vue项目</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack hybird-test</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合并cordova和vue项目</p>
+<blockquote>
+<p>此时的cordova项目结构如下</p>
+</blockquote>
+<p><img src="/home/zsy/Pictures/tree.png" alt="tree"></p>
+<blockquote>
+<p>删除www下的内容，因为这是cordova将打包到移动设备的内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> rm -r ./www</span><br><span class="line"><span class="meta">&gt;</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>修改vue项目./config/index.js的打包命令，修改index和assertsRoot路径为./www，修改assertsPublicPath路径为空串，因为该项目需要到移动设备中运行，视图的显示应该来源于file:///而非是web服务器</p>
+<p><img src="/home/zsy/Pictures/path.png" alt="path"></p>
+<p>打包成功后的www目录如下</p>
+<p><img src="/home/zsy/Pictures/tree2.png" alt="tree2"></p>
+<p>可以通过file:///协议访问index.html，即将该文件以chrome打开</p>
+<p><img src="/home/zsy/Pictures/page.png" alt="page"></p>
+<p>接下来需要通过修改Content-Security-Policy以便允许本地socket通信服务。即添加connect-src ‘self’ ws:;</p>
+<p><img src="/home/zsy/Pictures/code.png" alt="code"></p>
+<p>将www移到cordova目录之下</p>
+</blockquote>
+</li>
+<li><p>在Android下运行</p>
+<blockquote>
+<p>将www移到cordova项目根目录下</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cordova platform add android</span><br><span class="line">cordova run android</span><br></pre></td></tr></table></figure>
+<p>​</p>
+<p>​</p>
+</li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">zsy</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://yoursite.com/2018/07/07/vue-cordova/">http://yoursite.com/2018/07/07/vue-cordova/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/cordova/">cordova</a></div><nav id="pagination"></nav></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2018 By zsy</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file-o"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="/js/third-party/anime.min.js"></script><script src="/js/third-party/jquery.min.js"></script><script src="/js/third-party/jquery.fancybox.min.js"></script><script src="/js/third-party/velocity.min.js"></script><script src="/js/third-party/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.5.6"></script><script src="/js/fancybox.js?version=1.5.6"></script><script src="/js/sidebar.js?version=1.5.6"></script><script src="/js/copy.js?version=1.5.6"></script><script src="/js/fireworks.js?version=1.5.6"></script><script src="/js/transition.js?version=1.5.6"></script><script src="/js/scroll.js?version=1.5.6"></script><script src="/js/head.js?version=1.5.6"></script></body></html>
