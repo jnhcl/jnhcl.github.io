@@ -1717,9 +1717,9 @@ pre .javascript .function {
   bottom: 45px;
   width: 35px;
   height: 35px;
-  padding: 5px;
+  padding: auto auto;
   background-color: #fff;
-  border-radius: 10px;
+  border-radius: 20px;
   border: solid 1px #ddd;
   line-height: 0;
   padding: 5px;
@@ -1855,7 +1855,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #698698;
+  background: #9434ff;
 }
 .links-of-blogroll {
   font-size: 13px;
