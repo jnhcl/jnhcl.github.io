@@ -1102,7 +1102,6 @@ pre .javascript .function {
 }
 .header {
   background: transparent;
-  position: fixed;
 }
 .header-inner {
   position: relative;
@@ -1847,7 +1846,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c8130e;
+  background: #f7fc73;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2549,6 +2548,9 @@ hr {
   background-color: #fff;
   opacity: 0.5;
   border-bottom: 0.5px solid #c0c0c0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .header-inner {
   padding: 25px 0 20px;
