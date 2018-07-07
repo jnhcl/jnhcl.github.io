@@ -1843,7 +1843,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff25;
+  background: #55ff98;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2542,6 +2542,7 @@ hr {
 .header {
   background-color: #fff;
   opacity: 0.5;
+  border-bottom: 1px solid #000;
 }
 .header-inner {
   padding: 25px 0 20px;
