@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-07T11:12:58.404Z</updated>
+  <updated>2018-07-07T11:22:19.127Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,66 +18,12 @@
   
   <entry>
     <title>vue &amp; cordova</title>
-    <link href="http://yoursite.com/2018/07/07/vue-cordova.1/"/>
-    <id>http://yoursite.com/2018/07/07/vue-cordova.1/</id>
-    <published>2018-07-07T11:09:11.000Z</published>
-    <updated>2018-07-07T11:12:58.404Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Hybrid平台构建：（cordova-vue-webpack）"><a href="#Hybrid平台构建：（cordova-vue-webpack）" class="headerlink" title="Hybrid平台构建：（cordova + vue + webpack）"></a>Hybrid平台构建：（cordova + vue + webpack）</h1><ul><li>cordova</li></ul><hr><p>本文阐述了如何为Hybird移动应用构建开发平台，包含以下内容</p><ol><li>Cordova + vue + webpack</li><li>Jest/Mocha-Karma 测试</li><li>Nighwatch 函数测试</li><li>浏览器预览</li><li>热重载</li><li>打包成Android/IOS应用</li></ol><h3 id="何为Hybird应用"><a href="#何为Hybird应用" class="headerlink" title="何为Hybird应用"></a>何为Hybird应用</h3><blockquote><p>所谓Hybird应用，即为一个内嵌于原生应用中运行的网站。其中webview相关代码部分是即时翻译运行的，而其中原生部分在应用运行之前就已编译成机器码。</p></blockquote><h3 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h3><blockquote><p>unbantu Deepin 15.6<br>node.js v9.8.0<br>cordova v6.0.0<br>vue v2.9.3</p></blockquote><h3 id="构建步骤"><a href="#构建步骤" class="headerlink" title="构建步骤"></a>构建步骤</h3><ol><li><p>创建cordova项目</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova create hybird-base</span><br></pre></td></tr></table></figure></li><li><p>创建vue项目</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack hybird-test</span><br></pre></td></tr></table></figure></li><li><p>合并cordova和vue项目</p><blockquote><p>此时的cordova项目结构如下</p></blockquote><p><img src="../picture/tree.png" alt="tree"></p><a id="more"></a><blockquote><p>删除www下的内容，因为这是cordova将打包到移动设备的内容</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> rm -r ./www</span><br><span class="line"><span class="meta">&gt;</span></span><br></pre></td></tr></table></figure></blockquote><blockquote><p>修改vue项目./config/index.js的打包命令，修改index和assertsRoot路径为./www，修改assertsPublicPath路径为空串，因为该项目需要到移动设备中运行，视图的显示应该来源于file:///而非是web服务器</p><p><img src="../picture/path.png" alt="path"></p><p>打包成功后的www目录如下</p><p><img src="../picture/tree2.png" alt="tree2"></p><p>可以通过file:///协议访问index.html，即将该文件以chrome打开</p><p><img src="../picture/page.png" alt="page"></p><p>接下来需要通过修改Content-Security-Policy以便允许本地socket通信服务。即添加connect-src ‘self’ ws:;</p><p><img src="../picture/code.png" alt="code"></p><p>将www移到cordova目录之下</p></blockquote></li><li><p>在Android下运行</p><blockquote><p>将www移到cordova项目根目录下</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cordova platform add android</span><br><span class="line">cordova run android</span><br></pre></td></tr></table></figure><p>​</p><p>​</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Hybrid平台构建：（cordova-vue-webpack）&quot;&gt;&lt;a href=&quot;#Hybrid平台构建：（cordova-vue-webpack）&quot; class=&quot;headerlink&quot; title=&quot;Hybrid平台构建：（cordova + vue + webpack）&quot;&gt;&lt;/a&gt;Hybrid平台构建：（cordova + vue + webpack）&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;cordova&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt;本文阐述了如何为Hybird移动应用构建开发平台，包含以下内容&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Cordova + vue + webpack&lt;/li&gt;
-&lt;li&gt;Jest/Mocha-Karma 测试&lt;/li&gt;
-&lt;li&gt;Nighwatch 函数测试&lt;/li&gt;
-&lt;li&gt;浏览器预览&lt;/li&gt;
-&lt;li&gt;热重载&lt;/li&gt;
-&lt;li&gt;打包成Android/IOS应用&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&quot;何为Hybird应用&quot;&gt;&lt;a href=&quot;#何为Hybird应用&quot; class=&quot;headerlink&quot; title=&quot;何为Hybird应用&quot;&gt;&lt;/a&gt;何为Hybird应用&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;所谓Hybird应用，即为一个内嵌于原生应用中运行的网站。其中webview相关代码部分是即时翻译运行的，而其中原生部分在应用运行之前就已编译成机器码。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;准备环境&quot;&gt;&lt;a href=&quot;#准备环境&quot; class=&quot;headerlink&quot; title=&quot;准备环境&quot;&gt;&lt;/a&gt;准备环境&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;unbantu Deepin 15.6&lt;br&gt;node.js v9.8.0&lt;br&gt;cordova v6.0.0&lt;br&gt;vue v2.9.3&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;构建步骤&quot;&gt;&lt;a href=&quot;#构建步骤&quot; class=&quot;headerlink&quot; title=&quot;构建步骤&quot;&gt;&lt;/a&gt;构建步骤&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;创建cordova项目&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cordova create hybird-base&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;创建vue项目&lt;/p&gt;
-&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vue init webpack hybird-test&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;合并cordova和vue项目&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;此时的cordova项目结构如下&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../picture/tree.png&quot; alt=&quot;tree&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="编程" scheme="http://yoursite.com/categories/programming/"/>
-    
-    
-      <category term="cordova" scheme="http://yoursite.com/tags/cordova/"/>
-    
-      <category term="vue.js" scheme="http://yoursite.com/tags/vue-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue &amp; cordova</title>
     <link href="http://yoursite.com/2018/07/07/vue-cordova/"/>
     <id>http://yoursite.com/2018/07/07/vue-cordova/</id>
     <published>2018-07-07T07:09:11.000Z</published>
-    <updated>2018-07-07T11:12:36.332Z</updated>
+    <updated>2018-07-07T11:22:19.127Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Hybrid平台构建：（cordova-vue-webpack）"><a href="#Hybrid平台构建：（cordova-vue-webpack）" class="headerlink" title="Hybrid平台构建：（cordova + vue + webpack）"></a>Hybrid平台构建：（cordova + vue + webpack）</h1><ul><li>cordova</li></ul><hr><p>本文阐述了如何为Hybird移动应用构建开发平台，包含以下内容</p><ol><li>Cordova + vue + webpack</li><li>Jest/Mocha-Karma 测试</li><li>Nighwatch 函数测试</li><li>浏览器预览</li><li>热重载</li><li>打包成Android/IOS应用</li></ol><a id="more"></a><h3 id="何为Hybird应用"><a href="#何为Hybird应用" class="headerlink" title="何为Hybird应用"></a>何为Hybird应用</h3><blockquote><p>所谓Hybird应用，即为一个内嵌于原生应用中运行的网站。其中webview相关代码部分是即时翻译运行的，而其中原生部分在应用运行之前就已编译成机器码。</p></blockquote><h3 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h3><blockquote><p>unbantu Deepin 15.6<br>node.js v9.8.0<br>cordova v6.0.0<br>vue v2.9.3</p></blockquote><h3 id="构建步骤"><a href="#构建步骤" class="headerlink" title="构建步骤"></a>构建步骤</h3><ol><li><p>创建cordova项目</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova create hybird-base</span><br></pre></td></tr></table></figure></li><li><p>创建vue项目</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack hybird-test</span><br></pre></td></tr></table></figure></li><li><p>合并cordova和vue项目</p><blockquote><p>此时的cordova项目结构如下</p></blockquote><p><img src="../picture/tree.png" alt="tree"></p><blockquote><p>删除www下的内容，因为这是cordova将打包到移动设备的内容</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> rm -r ./www</span><br><span class="line"><span class="meta">&gt;</span></span><br></pre></td></tr></table></figure></blockquote><blockquote><p>修改vue项目./config/index.js的打包命令，修改index和assertsRoot路径为./www，修改assertsPublicPath路径为空串，因为该项目需要到移动设备中运行，视图的显示应该来源于file:///而非是web服务器</p><p><img src="../picture/path.png" alt="path"></p><p>打包成功后的www目录如下</p><p><img src="../picture/tree2.png" alt="tree2"></p><p>可以通过file:///协议访问index.html，即将该文件以chrome打开</p><p><img src="../picture/page.png" alt="page"></p><p>接下来需要通过修改Content-Security-Policy以便允许本地socket通信服务。即添加connect-src ‘self’ ws:;</p><p><img src="../picture/code.png" alt="code"></p><p>将www移到cordova目录之下</p></blockquote></li><li><p>在Android下运行</p><blockquote><p>将www移到cordova项目根目录下</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cordova platform add android</span><br><span class="line">cordova run android</span><br></pre></td></tr></table></figure><p>​</p><p>​</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="Hybrid平台构建：（cordova-vue-webpack）"><a href="#Hybrid平台构建：（cordova-vue-webpack）" class="headerlink" title="Hybrid平台构建：（cordova + vue + webpack）"></a>Hybrid平台构建：（cordova + vue + webpack）</h1><ul><li>cordova</li></ul><hr><p>本文阐述了如何为Hybird移动应用构建开发平台，包含以下内容</p><ol><li>Cordova + vue + webpack</li><li>Jest/Mocha-Karma 测试</li><li>Nighwatch 函数测试</li><li>浏览器预览</li><li>热重载</li><li>打包成Android/IOS应用<a id="more"></a></li></ol><h3 id="何为Hybird应用"><a href="#何为Hybird应用" class="headerlink" title="何为Hybird应用"></a>何为Hybird应用</h3><blockquote><p>所谓Hybird应用，即为一个内嵌于原生应用中运行的网站。其中webview相关代码部分是即时翻译运行的，而其中原生部分在应用运行之前就已编译成机器码。</p></blockquote><h3 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h3><blockquote><p>unbantu Deepin 15.6<br>node.js v9.8.0<br>cordova v6.0.0<br>vue v2.9.3</p></blockquote><h3 id="构建步骤"><a href="#构建步骤" class="headerlink" title="构建步骤"></a>构建步骤</h3><ol><li><p>创建cordova项目</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cordova create hybird-base</span><br></pre></td></tr></table></figure></li><li><p>创建vue项目</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack hybird-test</span><br></pre></td></tr></table></figure></li><li><p>合并cordova和vue项目</p><blockquote><p>此时的cordova项目结构如下</p></blockquote><p><img src="/picture/tree.png" alt="tree"></p><blockquote><p>删除www下的内容，因为这是cordova将打包到移动设备的内容</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span> rm -r ./www</span><br><span class="line"><span class="meta">&gt;</span></span><br></pre></td></tr></table></figure></blockquote><blockquote><p>修改vue项目./config/index.js的打包命令，修改index和assertsRoot路径为./www，修改assertsPublicPath路径为空串，因为该项目需要到移动设备中运行，视图的显示应该来源于file:///而非是web服务器</p><p><img src="/picture/path.png" alt="path"></p><p>打包成功后的www目录如下</p><p><img src="/picture/tree2.png" alt="tree2"></p><p>可以通过file:///协议访问index.html，即将该文件以chrome打开</p><p><img src="/picture/page.png" alt="page"></p><p>接下来需要通过修改Content-Security-Policy以便允许本地socket通信服务。即添加connect-src ‘self’ ws:;</p><p><img src="/picture/code.png" alt="code"></p><p>将www移到cordova目录之下</p></blockquote></li><li><p>在Android下运行</p><blockquote><p>将www移到cordova项目根目录下</p></blockquote><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cordova platform add android</span><br><span class="line">cordova run android</span><br></pre></td></tr></table></figure><p>​</p><p>​</p></li></ol>]]></content>
     
     <summary type="html">
     
@@ -92,8 +38,7 @@
 &lt;li&gt;Nighwatch 函数测试&lt;/li&gt;
 &lt;li&gt;浏览器预览&lt;/li&gt;
 &lt;li&gt;热重载&lt;/li&gt;
-&lt;li&gt;打包成Android/IOS应用&lt;/li&gt;
-&lt;/ol&gt;
+&lt;li&gt;打包成Android/IOS应用
     
     </summary>
     
