@@ -1120,7 +1120,8 @@ pre .javascript .function {
   }
 }
 .brand {
-  position: relative;
+  position: fixed;
+  left: 20px;
   display: inline-block;
   padding: 0 40px;
   color: #222;
@@ -1139,8 +1140,7 @@ pre .javascript .function {
 .site-title {
   display: inline-block;
   vertical-align: top;
-  position: fixed;
-  left: 20px;
+  text-align: center;
   line-height: 36px;
   font-size: 20px;
   font-weight: normal;
@@ -1851,7 +1851,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff0186;
+  background: #ccdde2;
 }
 .links-of-blogroll {
   font-size: 13px;
