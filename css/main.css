@@ -1852,7 +1852,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #2e22c8;
+  background: #fff137;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2559,6 +2559,7 @@ hr {
   left: 0;
   text-align: center;
   width: 100%;
+  z-index: 1;
 }
 .header-inner {
   padding: 10px 0 10px;
@@ -2574,7 +2575,7 @@ hr {
 @media (max-width: 767px) {
   .header-inner {
     width: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 10px;
   }
 }
