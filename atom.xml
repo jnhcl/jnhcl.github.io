@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-07T13:09:45.220Z</updated>
+  <updated>2018-07-07T13:33:22.884Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Math</title>
+    <link href="http://yoursite.com/2018/07/07/Math/"/>
+    <id>http://yoursite.com/2018/07/07/Math/</id>
+    <published>2018-07-07T13:30:48.000Z</published>
+    <updated>2018-07-07T13:33:22.884Z</updated>
+    
+    <content type="html"><![CDATA[<p>###转化</p><hr><p>$$a\%d=(a-1)\%d+1//防止a是d的倍数$$<br>$$(a-1)\%d+1=a-\lfloor{\frac{a-1}{d}}\rfloor\times d$$</p><p>###换底公式</p><hr><p>$$log_ab=\frac{log_cb}{log_ca}$$</p><p>###相关不等式：</p><hr><p>#####均值不等式</p><blockquote><p>$$\frac{a_1+a_2+a_3+\cdots+a_n}{n}\ge \sqrt[n]{a_1\cdot a_2\cdot a_3\cdot \cdots\cdot a_n}$$</p></blockquote><p><img src="http://images2015.cnblogs.com/blog/785934/201707/785934-20170725120112724-614991680.jpg" alt=""></p><p>#####绝对值不等式</p><blockquote><p>$$|\;|a|-|b|\;|\leq\;|a\pm b|\leq |a|+|b|$$</p></blockquote><p>#####排序不等式</p><blockquote><p>$若a_1≤a_2≤···≤a_n，b_1≤b_2≤···≤b_n，则$<br>$$a_1b_n+a_2b_{n-1}+\cdots+a_nb_1≤a_1b_{t1}+a_2b_{t2}+\cdots+a_nb_{tn}≤a_1b_1+a_2b_2+a_nb_n$$<br>式中t1，t2，……，tn是1，2，……，n的任意一个排列，当且仅当a1=a2=……=an或b1=b2=……=bn时成立。一般为了便于记忆，常记为：反序和≤乱序和≤同序和.</p></blockquote><p>######柯西不等式</p><blockquote><p>$$ac+bd\leq\sqrt{(a^2+b^2)(c^2+d^2)}$$</p></blockquote><p>###调和级数</p><hr><p>$$1+\frac12+\frac13+\cdots+\frac1n ≈ ln^n+C$$<br>C为欧拉常数，约为： 0.57721566490153286060651209</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/picture/math.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/programming/"/>
+    
+    
+      <category term="数学" scheme="http://yoursite.com/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Manacher</title>
+    <link href="http://yoursite.com/2018/07/07/Manacher/"/>
+    <id>http://yoursite.com/2018/07/07/Manacher/</id>
+    <published>2018-07-07T13:26:27.000Z</published>
+    <updated>2018-07-07T13:29:11.030Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="马拉车，O（n）求回文串"><a href="#马拉车，O（n）求回文串" class="headerlink" title="马拉车，O（n）求回文串"></a>马拉车，O（n）求回文串</h2><p>对整个马拉车算法步骤做个总结：</p><ul><li><p>第一步：将每个原字母用两个特殊字符包围如：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">aaa --&gt; #a#a#a#</span><br><span class="line">abab --&gt;#a#b#a#b </span><br><span class="line">同时可以由这个翻倍的字符串得到一个性质：</span><br><span class="line">如果在此串中，以特殊字符，如&apos;#&apos;为回文中心，那么在原串中回文长度就是偶数，如果是以正常字符为回文中心，那么在原串中的回文长度就是奇数</span><br></pre></td></tr></table></figure></li></ul><blockquote><p>这样可以使得所有的奇数长度的回文串变成偶数长度</p></blockquote><ul><li><p>第二步：设置P数组P[N*3];代表S[i]的回文半径(包括自身)，并设置id为迄今为止回文半径最大的字符位置，max为id+P[id]，该回文串的右边界位置</p></li><li><p>第三步：求p数组，这里存在一个结论：<br>如果mx &gt; i，那么P[i] &gt;= min(P[2 <em> id - i], mx - i)。<br>2</em>id-i，将其转化到x坐标上看，正好是i关于id的对称点，可以这么理解：由于mx&gt;i，可知i–&gt;mx是在已知范围以内的，因为以i为回文中心的回文串是与以其关于对称点j=2*id-i存在长度至少为mx-i相同回文半径的。<br>如图：（x和y至少是同样长的，因为以j为中心的是回文串，同id同i，根据回文串性质可得）</p><p><img src="http://images2015.cnblogs.com/blog/785934/201703/785934-20170309202943344-525547320.jpg" alt=""></p></li></ul><ul><li>第四步：对于p数组的认识，p数组是在原字符串翻倍后的基础上进行运算的，很显然，若p[i]=6，那么原串的回文长度(不是回文半径)是5 :设原半径为ans,回文长度为len,那么len=ans<em>2-1;而此时半径为x=ans</em>2,转化可得len=x-1;</li></ul><p>这里贴上两份模板</p><p>模板1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">void init()</span><br><span class="line">&#123;</span><br><span class="line">    len1=strlen(s);</span><br><span class="line">    str[0]=&apos;(&apos;;</span><br><span class="line">    str[1]=&apos;#&apos;;</span><br><span class="line">    for(int i=0;i&lt;len1;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        str[i*2+2]=s[i];</span><br><span class="line">        str[i*2+3]=&apos;#&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    len2=len1*2+2;</span><br><span class="line">    str[len2]=&apos;)&apos;;</span><br><span class="line">&#125;</span><br><span class="line">void Manacher()</span><br><span class="line">&#123;</span><br><span class="line">    memset(p,0,sizeof(p));</span><br><span class="line">    int id=0,mx=0;</span><br><span class="line">    for(int i=1;i&lt;len2;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(mx&gt;i) p[i]=min(mx-i,p[2*id-i]);</span><br><span class="line">        else p[i]=1;</span><br><span class="line">        for(;str[i+p[i]]==str[i-p[i]];p[i]++);</span><br><span class="line">        if(p[i]+i&gt;mx)</span><br><span class="line">        &#123;</span><br><span class="line">            mx=p[i]+i;</span><br><span class="line">            id=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>模板2：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">int Init(int n)</span><br><span class="line">&#123;</span><br><span class="line">    cpy[0]=&apos;(&apos;;cpy[1]=&apos;#&apos;;</span><br><span class="line">    for(int i=0,j=2;i&lt;n;j+=2,i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cpy[j]=a[i];</span><br><span class="line">        cpy[j+1]=&apos;#&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    n=n*2+3;</span><br><span class="line">    cpy[n-1]=&apos;)&apos;;</span><br><span class="line">    return n;</span><br><span class="line">&#125;</span><br><span class="line">void Manacher(char *s,int n,int *p)</span><br><span class="line">&#123;</span><br><span class="line">    for(int i=1,j=0,k;i&lt;n;i+=k)</span><br><span class="line">    &#123;</span><br><span class="line">        while(s[i-j-1]==s[i+j+1]) j++;</span><br><span class="line">        p[i]=j;</span><br><span class="line">        for(k=1;k&lt;=p[i]&amp;&amp;p[i-k]!=p[i]-k;k++)</span><br><span class="line">        &#123;</span><br><span class="line">            p[i+k]=min(p[i-k],p[i]-k);</span><br><span class="line">        &#125;</span><br><span class="line">        j=max(j-k,0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/picture/manacher.jpg&quot;&gt;
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/programming/"/>
+    
+    
+      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>朴素贝叶斯</title>

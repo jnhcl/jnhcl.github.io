@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2018/07/07/Math/</loc>
+    
+    <lastmod>2018-07-07T13:33:22.884Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2018/07/07/Manacher/</loc>
+    
+    <lastmod>2018-07-07T13:29:11.030Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2018/07/07/vue-cordova/</loc>
     
     <lastmod>2018-07-07T13:12:37.064Z</lastmod>
