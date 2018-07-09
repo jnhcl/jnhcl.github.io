@@ -1860,7 +1860,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1baabb;
+  background: #9f2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2191,8 +2191,7 @@ img:hover {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 2080;
-  background-color: rgba(0,0,0,0.3);
+  z-index: 1;
 }
 .local-search-popup {
   display: none;
@@ -2205,7 +2204,7 @@ img:hover {
   padding: 0;
   background: #fff;
   color: #333;
-  z-index: 9999;
+  z-index: 1;
   border-radius: 5px;
 }
 @media (max-width: 767px) {
@@ -2561,7 +2560,7 @@ hr {
   background-color: #fff;
   opacity: 0.5;
   border-bottom: 0.5px solid #c0c0c0;
-  height: 7%;
+  height: 66px;
   position: fixed;
   top: 0;
   left: 0;
@@ -2571,7 +2570,7 @@ hr {
 }
 @media (max-width: 767px) {
   .header {
-    height: 9%;
+    height: 55px;
     opacity: 1;
     background: #fff;
   }

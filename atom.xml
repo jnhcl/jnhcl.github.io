@@ -31,7 +31,7 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/programming/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
       <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
@@ -53,7 +53,7 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/programming/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
       <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
@@ -75,7 +75,7 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/programming/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
       <category term="数学" scheme="http://yoursite.com/tags/%E6%95%B0%E5%AD%A6/"/>
@@ -97,7 +97,7 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/programming/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
       <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
@@ -119,7 +119,7 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/programming/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
@@ -141,7 +141,7 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/programming/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
       <category term="cordova" scheme="http://yoursite.com/tags/cordova/"/>
