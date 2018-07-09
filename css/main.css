@@ -1073,10 +1073,12 @@ pre .javascript .function {
   z-index: 1050;
   padding: 0 6px;
   width: initial;
-  background: #000;
+  background: #fff;
   font-size: 12px;
   opacity: 1;
-  color: #fff;
+  color: #000;
+  border: 1px solid #c0c0c0;
+  border-radius: 35px;
   cursor: pointer;
   text-align: center;
   -webkit-transform: translateZ(0);
@@ -1179,16 +1181,12 @@ pre .javascript .function {
   background: transparent;
   border: none;
 }
-.site-nav {
-  float: right;
-}
 @media (max-width: 767px) {
   .site-nav {
     display: none;
     margin: 0 -10px;
     padding: 0 10px;
     clear: both;
-    border-top: 1px solid #ddd;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1199,6 +1197,13 @@ pre .javascript .function {
 @media (min-width: 992px) {
   .site-nav {
     display: block !important;
+  }
+}
+@media (max-width: 767px) and (max-width: 767px) {
+  .site-nav {
+    position: static;
+    margin-top: 55px;
+    opacity: 0.92;
   }
 }
 .menu {
@@ -1855,7 +1860,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff3dff;
+  background: #1baabb;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2556,12 +2561,20 @@ hr {
   background-color: #fff;
   opacity: 0.5;
   border-bottom: 0.5px solid #c0c0c0;
+  height: 7%;
   position: fixed;
   top: 0;
   left: 0;
   text-align: center;
   width: 100%;
   z-index: 1;
+}
+@media (max-width: 767px) {
+  .header {
+    height: 9%;
+    opacity: 1;
+    background: #fff;
+  }
 }
 .header-inner {
   padding: 10px 0 10px;
@@ -2597,6 +2610,7 @@ hr {
 }
 @media (max-width: 767px) {
   .site-meta .brand {
+    position: static;
     display: block;
   }
 }
@@ -2653,11 +2667,18 @@ hr {
 }
 .menu {
   margin: 8px 0 0 0;
+  background: #fff;
+  position: fixed;
+  right: 20px;
 }
 @media (max-width: 767px) {
   .menu {
+    opacity: 1;
+    z-index: 1;
+    position: static;
+    padding: 5px;
     margin: 20px 0 0 0;
-    padding: 0;
+    border: 1px #f5f5dc solid;
   }
 }
 .menu br {
@@ -2668,7 +2689,7 @@ hr {
 }
 @media (max-width: 767px) {
   .menu .menu-item {
-    display: block;
+    display: inline-block;
   }
 }
 .menu .menu-item .badge {
@@ -2693,7 +2714,7 @@ hr {
 .menu .menu-item a {
   padding: 0 10px;
   border: none;
-  border-radius: 2px;
+  border-radius: 12px;
   transition-property: background;
 }
 @media (max-width: 767px) {
